@@ -1,0 +1,24 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunaZ13/Social-Network-API.git"
+  },
+  "author": "Inmar Luna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LunaZ13/Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/LunaZ13/Social-Network-API#readme"
+}
