@@ -3,20 +3,26 @@ const User = require('../Models/User.js');
 const userController = {
     // get all users
     getAllUsers(req, res) {
-        console.log('INSIDE GET ALL USER CONTROLLER~')
         User.find({})
-        .then(userData => res.json(userData))
+            .then(userData => res.json(userData))
             .catch(err => res.status(400).json(err));
-
     },
 
     // get one user
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
+            .then(userData => {
+                if (!userData) {
+                    res.status(404).json({ message: 'No user found with this id' });
+                    return;
+                }
+                res.json(userData);
+            })
+            .catch(err => res.status(400).json(err));
     },
 
     // create a new user
-    createUser({ params, body }, res) {
+    createUser({ body }, res) {
         User.create(body)
             .then(userData => res.json(userData))
             .catch(err => res.status(400).json(err));
