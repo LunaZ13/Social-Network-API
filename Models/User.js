@@ -13,6 +13,7 @@ const userSchema = new Schema(
       unique: true,
       required: true,
       // match email
+      match: [/^.+@(?:[\w-]+\.)+\w+$/, 'Please enter a valid email address']
     },
     friends: [
       {
