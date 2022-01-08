@@ -8,7 +8,7 @@ const userController = {
             .catch(err => res.status(400).json(err));
     },
 
-    // get one user
+    // get one user by id
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
             .then(userData => {
@@ -74,17 +74,7 @@ const userController = {
     //         { $pull: { }
     //     )
     // }
-
-
-
-    
-
 }
-
-
-
-
-
 
 
 module.exports = userController;
