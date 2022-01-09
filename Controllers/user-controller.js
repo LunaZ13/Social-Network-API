@@ -4,6 +4,9 @@ const userController = {
     // get all users
     getAllUsers(req, res) {
         User.find({})
+            populate({path: 'thoughts', select: '-__v'})
+            populate({path: 'friends', select: '-__v'})
+            select('-__v')
             .then(userData => res.json(userData))
             .catch(err => res.status(400).json(err));
     },
@@ -11,6 +14,9 @@ const userController = {
     // get one user by id
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
+            populate({path: 'thoughts', select: '-__v'})
+            populate({path: 'friends', select: '-__v'})
+            select('-__v')
             .then(userData => {
                 if (!userData) {
                     res.status(404).json({ message: 'No user found with this id' });
@@ -49,14 +55,14 @@ const userController = {
                 }
                 res.json(userData);
             })
-            .catch(err => res.status(404).json(err));
+            .catch(err => res.status(400).json(err));
     },
     // add a friend to user
     addFriend({ params, body }, res) {
             User.findOneAndUpdate(
                 { _id: params.userId },
                 { $push: { friends: body.id } },
-                { new: true }
+                { new: true,  runValidators: true }
             )
         .then(userData => {
             if (!userData) {
@@ -65,15 +71,24 @@ const userController = {
             }
             res.json(userData);
         })
-        .catch(err => res.status(404).json(err));
+        .catch(err => res.status(400).json(err));
     },
-    // remove a friend from user
-    // removeFriend({ params }, res) {
-    //     Thoughts.findOneAndUpdate(
-    //         { _id: params.userId}
-    //         { $pull: { }
-    //     )
-    // }
+    //remove a friend from user
+    removeFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId},
+            { $pull: { friends: params.friendId } },
+            { new: true }
+        )
+        .then(userData => {
+            if (!userData) {
+                res.status(404).json({ message: 'No user found with this id '});
+                return;
+            }
+            res.json(userData);
+        })
+        .catch(err => res.status(400).json(err));
+    }
 }
 
 

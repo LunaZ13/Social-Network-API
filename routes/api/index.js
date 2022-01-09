@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+// set up routes for user and thought routes under api route
 const userRoutes = require('./user-routes');
 const thoughtRoutes = require('./thought-routes');
 
