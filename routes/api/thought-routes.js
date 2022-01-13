@@ -11,15 +11,18 @@ const { getAllThoughts,
 // set up GET all and POST at routes
 router
     .route('/')
-    .get(getAllThoughts)
-    .post(createThought)
+    .get(getAllThoughts);
+   
 
 // set up GET one, PUT, and DELETE routes
 router
-    .route('/:id')
+    .route('/:id/')
+    .post(createThought)
     .get(getThoughtById)
-    .put(updateThought)
-    .delete(deleteThought);
+    .put(updateThought);;
+   // .delete(deleteThought);
+    
+router.route('/:thoughtId/:userId').delete(deleteThought);
 
 router
     .route('/:thoughtId/reactions')
