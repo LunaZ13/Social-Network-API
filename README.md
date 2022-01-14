@@ -22,6 +22,7 @@ Get / POST / DELETE for Thoughts, Users, Friends, and Reactions.
 [video1161744635.mp4.zip](https://github.com/LunaZ13/Social-Network-API/files/7867959/video1161744635.mp4.zip)
 
 PUT for updating users and thoughts.
+
 https://user-images.githubusercontent.com/86627336/149455525-aba5dbcb-ca05-4627-b0a9-f85dc1027bf4.mp4
 
 ## Contributing:
