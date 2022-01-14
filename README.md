@@ -18,6 +18,7 @@ CLI commands
 ## Usage:
 User is able to test API POST, GET, PUT, and DELETE routes and to add, update, and delete data for a social network API that can be used for a website. Watch the demo video below.
 
+[video1161744635.mp4.zip](https://github.com/LunaZ13/Social-Network-API/files/7867959/video1161744635.mp4.zip)
 
 ## Contributing:
 Feel free to fork project and reach out.
